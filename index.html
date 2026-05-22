@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexus — Join the Network</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===== BACKGROUND DECORATION ===== -->
+  <div class="bg-orb bg-orb--1" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb--2" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- ===== PAGE WRAPPER ===== -->
+  <main class="page">
+
+    <!-- ===== LEFT PANEL — BRAND ===== -->
+    <aside class="brand-panel" aria-label="Brand information">
+      <div class="brand-panel__inner">
+        <header class="brand-panel__header">
+          <span class="brand-logo" aria-label="Nexus logo">
+            <span class="brand-logo__icon" aria-hidden="true">✦</span>
+            Nexus
+          </span>
+        </header>
+
+        <div class="brand-panel__body">
+          <h1 class="brand-tagline">
+            Connect.<br/>
+            Create.<br/>
+            <em>Thrive.</em>
+          </h1>
+          <p class="brand-description">
+            Join over 4 million people who share ideas, build communities,
+            and shape conversations that matter.
+          </p>
+        </div>
+
+        <ul class="brand-features" aria-label="Key features">
+          <li class="brand-feature">
+            <span class="brand-feature__icon" aria-hidden="true">◈</span>
+            <span>Real-time global feed</span>
+          </li>
+          <li class="brand-feature">
+            <span class="brand-feature__icon" aria-hidden="true">◈</span>
+            <span>End-to-end encrypted DMs</span>
+          </li>
+          <li class="brand-feature">
+            <span class="brand-feature__icon" aria-hidden="true">◈</span>
+            <span>Creator monetisation tools</span>
+          </li>
+        </ul>
+
+        <footer class="brand-panel__footer">
+          <p class="brand-stats">
+            <strong>4.2M+</strong> members &nbsp;·&nbsp;
+            <strong>190</strong> countries &nbsp;·&nbsp;
+            <strong>0</strong> ads
+          </p>
+        </footer>
+      </div>
+    </aside>
+
+    <!-- ===== RIGHT PANEL — FORM ===== -->
+    <section class="form-panel" aria-label="Registration form">
+      <div class="form-panel__inner">
+
+        <!-- Progress bar -->
+        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Form completion">
+          <div class="progress-bar__fill" id="progressFill"></div>
+          <span class="progress-bar__label" id="progressLabel">0% complete</span>
+        </div>
+
+        <h2 class="form-title">Create your account</h2>
+        <p class="form-subtitle">
+          Already a member?
+          <a href="#" class="form-link">Sign in instead</a>
+        </p>
+
+        <!-- ===== REGISTRATION FORM ===== -->
+        <form class="reg-form" id="registrationForm" novalidate aria-label="Registration form">
+
+          <!-- Full name -->
+          <div class="field-group field-group--split">
+            <div class="field" id="field-firstName">
+              <label class="field__label" for="firstName">
+                First name <span class="field__required" aria-label="required">*</span>
+              </label>
+              <div class="field__input-wrap">
+                <input
+                  class="field__input"
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  placeholder="Ada"
+                  autocomplete="given-name"
+                  aria-required="true"
+                  aria-describedby="firstName-error"
+                />
+              </div>
+              <span class="field__error" id="firstName-error" role="alert" aria-live="polite"></span>
+            </div>
+
+            <div class="field" id="field-lastName">
+              <label class="field__label" for="lastName">
+                Last name <span class="field__required" aria-label="required">*</span>
+              </label>
+              <div class="field__input-wrap">
+                <input
+                  class="field__input"
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  placeholder="Lovelace"
+                  autocomplete="family-name"
+                  aria-required="true"
+                  aria-describedby="lastName-error"
+                />
+              </div>
+              <span class="field__error" id="lastName-error" role="alert" aria-live="polite"></span>
+            </div>
+          </div>
+
+          <!-- Username -->
+          <div class="field" id="field-username">
+            <label class="field__label" for="username">
+              Username <span class="field__required" aria-label="required">*</span>
+            </label>
+            <div class="field__input-wrap field__input-wrap--prefix">
+              <span class="field__prefix" aria-hidden="true">@</span>
+              <input
+                class="field__input field__input--prefixed"
+                type="text"
+                id="username"
+                name="username"
+                placeholder="ada_lovelace"
+                autocomplete="username"
+                aria-required="true"
+                aria-describedby="username-hint username-error"
+                maxlength="30"
+              />
+              <span class="field__status" id="username-status" aria-live="polite"></span>
+            </div>
+            <span class="field__hint" id="username-hint">3–30 characters. Letters, numbers, underscores only.</span>
+            <span class="field__error" id="username-error" role="alert" aria-live="polite"></span>
+          </div>
+
+          <!-- Email -->
+          <div class="field" id="field-email">
+            <label class="field__label" for="email">
+              Email address <span class="field__required" aria-label="required">*</span>
+            </label>
+            <div class="field__input-wrap">
+              <input
+                class="field__input"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="ada@example.com"
+                autocomplete="email"
+                aria-required="true"
+                aria-describedby="email-error"
+              />
+            </div>
+            <span class="field__error" id="email-error" role="alert" aria-live="polite"></span>
+          </div>
+
+          <!-- Date of birth -->
+          <div class="field" id="field-dob">
+            <label class="field__label" for="dob">
+              Date of birth <span class="field__required" aria-label="required">*</span>
+            </label>
+            <div class="field__input-wrap">
+              <input
+                class="field__input"
+                type="date"
+                id="dob"
+                name="dob"
+                aria-required="true"
+                aria-describedby="dob-hint dob-error"
+              />
+            </div>
+            <span class="field__hint" id="dob-hint">You must be at least 13 years old.</span>
+            <span class="field__error" id="dob-error" role="alert" aria-live="polite"></span>
+          </div>
+
+          <!-- Gender -->
+          <fieldset class="fieldset" id="field-gender">
+            <legend class="fieldset__legend">
+              Gender <span class="field__required" aria-label="required">*</span>
+            </legend>
+            <div class="radio-group" role="group">
+              <label class="radio-option">
+                <input class="radio-option__input" type="radio" name="gender" value="female" />
+                <span class="radio-option__box" aria-hidden="true"></span>
+                <span class="radio-option__label">Female</span>
+              </label>
+              <label class="radio-option">
+                <input class="radio-option__input" type="radio" name="gender" value="male" />
+                <span class="radio-option__box" aria-hidden="true"></span>
+                <span class="radio-option__label">Male</span>
+              </label>
+              <label class="radio-option">
+                <input class="radio-option__input" type="radio" name="gender" value="nonbinary" />
+                <span class="radio-option__box" aria-hidden="true"></span>
+                <span class="radio-option__label">Non-binary</span>
+              </label>
+              <label class="radio-option">
+                <input class="radio-option__input" type="radio" name="gender" value="prefer-not" />
+                <span class="radio-option__box" aria-hidden="true"></span>
+                <span class="radio-option__label">Prefer not to say</span>
+              </label>
+            </div>
+            <span class="field__error" id="gender-error" role="alert" aria-live="polite"></span>
+          </fieldset>
+
+          <!-- Password -->
+          <div class="field" id="field-password">
+            <label class="field__label" for="password">
+              Password <span class="field__required" aria-label="required">*</span>
+            </label>
+            <div class="field__input-wrap">
+              <input
+                class="field__input"
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Min. 8 characters"
+                autocomplete="new-password"
+                aria-required="true"
+                aria-describedby="password-strength password-error"
+              />
+              <button
+                type="button"
+                class="field__toggle-btn"
+                id="togglePassword"
+                aria-label="Show password"
+                aria-pressed="false"
+              >
+                <span class="toggle-icon toggle-icon--show" aria-hidden="true">👁</span>
+                <span class="toggle-icon toggle-icon--hide" aria-hidden="true">🙈</span>
+              </button>
+            </div>
+            <!-- Strength meter -->
+            <div class="strength-meter" id="password-strength" aria-live="polite" aria-label="Password strength">
+              <div class="strength-meter__bars">
+                <span class="strength-bar" data-index="0"></span>
+                <span class="strength-bar" data-index="1"></span>
+                <span class="strength-bar" data-index="2"></span>
+                <span class="strength-bar" data-index="3"></span>
+              </div>
+              <span class="strength-meter__label" id="strengthLabel"></span>
+            </div>
+            <span class="field__error" id="password-error" role="alert" aria-live="polite"></span>
+          </div>
+
+          <!-- Confirm password -->
+          <div class="field" id="field-confirmPassword">
+            <label class="field__label" for="confirmPassword">
+              Confirm password <span class="field__required" aria-label="required">*</span>
+            </label>
+            <div class="field__input-wrap">
+              <input
+                class="field__input"
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                placeholder="Repeat your password"
+                autocomplete="new-password"
+                aria-required="true"
+                aria-describedby="confirmPassword-error"
+              />
+            </div>
+            <span class="field__error" id="confirmPassword-error" role="alert" aria-live="polite"></span>
+          </div>
+
+          <!-- Interests (checkboxes) -->
+          <fieldset class="fieldset" id="field-interests">
+            <legend class="fieldset__legend">Interests <span class="field__hint-inline">(pick at least one)</span></legend>
+            <div class="checkbox-grid">
+              <label class="checkbox-chip">
+                <input class="checkbox-chip__input" type="checkbox" name="interests" value="tech" />
+                <span class="checkbox-chip__label">🖥 Tech</span>
+              </label>
+              <label class="checkbox-chip">
+                <input class="checkbox-chip__input" type="checkbox" name="interests" value="music" />
+                <span class="checkbox-chip__label">🎵 Music</span>
+              </label>
+              <label class="checkbox-chip">
+                <input class="checkbox-chip__input" type="checkbox" name="interests" value="art" />
+                <span class="checkbox-chip__label">🎨 Art</span>
+              </label>
+              <label class="checkbox-chip">
+                <input class="checkbox-chip__input" type="checkbox" name="interests" value="sports" />
+                <span class="checkbox-chip__label">⚽ Sports</span>
+              </label>
+              <label class="checkbox-chip">
+                <input class="checkbox-chip__input" type="checkbox" name="interests" value="science" />
+                <span class="checkbox-chip__label">🔬 Science</span>
+              </label>
+              <label class="checkbox-chip">
+                <input class="checkbox-chip__input" type="checkbox" name="interests" value="travel" />
+                <span class="checkbox-chip__label">✈ Travel</span>
+              </label>
+              <label class="checkbox-chip">
+                <input class="checkbox-chip__input" type="checkbox" name="interests" value="gaming" />
+                <span class="checkbox-chip__label">🎮 Gaming</span>
+              </label>
+              <label class="checkbox-chip">
+                <input class="checkbox-chip__input" type="checkbox" name="interests" value="food" />
+                <span class="checkbox-chip__label">🍜 Food</span>
+              </label>
+            </div>
+            <span class="field__error" id="interests-error" role="alert" aria-live="polite"></span>
+          </fieldset>
+
+          <!-- Terms -->
+          <div class="field field--checkbox" id="field-terms">
+            <label class="checkbox-inline">
+              <input
+                class="checkbox-inline__input"
+                type="checkbox"
+                id="terms"
+                name="terms"
+                aria-required="true"
+                aria-describedby="terms-error"
+              />
+              <span class="checkbox-inline__box" aria-hidden="true"></span>
+              <span class="checkbox-inline__text">
+                I agree to the
+                <a href="#" class="form-link">Terms of Service</a>
+                and
+                <a href="#" class="form-link">Privacy Policy</a>
+                <span class="field__required" aria-label="required">*</span>
+              </span>
+            </label>
+            <span class="field__error" id="terms-error" role="alert" aria-live="polite"></span>
+          </div>
+
+          <!-- Newsletter -->
+          <div class="field field--checkbox">
+            <label class="checkbox-inline">
+              <input class="checkbox-inline__input" type="checkbox" id="newsletter" name="newsletter" />
+              <span class="checkbox-inline__box" aria-hidden="true"></span>
+              <span class="checkbox-inline__text">Send me product updates and tips (optional)</span>
+            </label>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" class="btn-submit" id="submitBtn">
+            <span class="btn-submit__text">Create account</span>
+            <span class="btn-submit__icon" aria-hidden="true">→</span>
+          </button>
+
+        </form>
+
+        <!-- ===== SUCCESS MESSAGE (hidden initially) ===== -->
+        <div class="success-message" id="successMessage" role="status" aria-live="polite" hidden>
+          <div class="success-message__icon" aria-hidden="true">✦</div>
+          <h3 class="success-message__title">Welcome to Nexus!</h3>
+          <p class="success-message__text">Your account has been created. Check your email to verify your address.</p>
+          <button type="button" class="btn-submit btn-submit--secondary" id="resetBtn">
+            Register another account
+          </button>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
